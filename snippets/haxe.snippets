@@ -8,8 +8,12 @@ snippet doc
 	/**
 	  ${1}
 	 **/
+snippet idoc
+	/* ${1:what's going on here?} */
+snippet com
+	// ${1:comment}
 snippet switch
-	switch(${1}){
+	switch (${1}) {
 		case ${2}: ${3}
 	}
 snippet case
@@ -17,39 +21,82 @@ snippet case
 snippet try
 	try{
 		${1}
-	}catch(e:${2}){
+	}
+	catch (e: ${2}) {
 	  ${3:// Ignore any errors.}
 	}
 snippet for
-	for( ${1:var} in ${2:itr} ){
+	for (${1:var} in ${2:itr}) {
 		${3}
+	}
+snippet if
+	if (${1:condition}) {
+		${2://TODO}
+	}
+snippet ife
+	if (${1:condition}) {
+		${2://TODO when ${1}}
+	}
+	else {
+		${3://TODO otherwise}
+	}
+snippet elif
+	else if (${1:alt condition}) {
+		${2://TODO when ${1}}
 	}
 snippet class HAXE
 	class `expand('%:t:r')` {
-
+		/* Constructor Function */
 		public function new(${1}) {
 			${2://initialize variables}
 		}
 
-		static function main() {
-			${3:trace("hello world");}
+	/* === Instance Methods === */
+	/* === Instance Fields === */
+	}
+snippet nclass
+	class ${1:ClassName} {
+		/* Constructor Function */
+		public function new(${2:args}) {
+			${3://initialize variables}
 		}
 
+	/* === Instance Methods === */
+	/* === Instance Fields === */
+	}
+snippet gclass
+	class ${1:ClassName}<${2:T}> {
+		/* Constructor Function */
+		public function new(${3:args}) {
+			${4://initialize variables}
+		}
+
+	/* === Instance Methods === */
+	/* === Instance Fields === */
 	}
 snippet main
+	/* Main Function */
 	static function main() {
 		${1:trace("hello world");}
 	}
 snippet new
+	/* Constructor Function */
 	public function new(${1:arg}) {
 		super($1);
 	}
 snippet fn func
+	/* ${3} */
 	function(${1:arg}) {
 		${2}
 	}
 snippet fu function
+	/* ${4} */
 	function ${1:name}(${2:arg}) {
+		${3}
+	}
+snippet ifu function
+	/* ${4} */
+	inline function ${1:name}(${2:arg}) {
 		${3}
 	}
 snippet prifu private function
